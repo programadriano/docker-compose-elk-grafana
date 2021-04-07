@@ -1,0 +1,33 @@
+version: "3.9"
+services:  
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.11.1
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks:
+      - testes-elastic
+    environment:
+      discovery.type: single-node
+      ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.11.1
+    ports:
+      - 5601:5601
+    networks:
+      - testes-elastic
+    depends_on:
+      - elasticsearch
+  grafana:
+    image: grafana/grafana:7.5.3
+    ports:
+      - 3000:3000
+    networks:
+      - testes-elastic
+    depends_on:
+      - elasticsearch      
+networks: 
+  testes-elastic:
+    driver: bridge
+    
+    
