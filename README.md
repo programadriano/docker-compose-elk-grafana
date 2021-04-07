@@ -5,7 +5,7 @@ Compose com as tecnologias:
 * elastic
 * kibana
 
-Executando ele basta abrir as URLs abaixo para verificar os projetos rodando:
+Executando o comando docker-compose up, o próximo passo será abrir as URLs abaixo para verificar os projetos rodando:
 
 Kibana
 http://localhost:5601/
